@@ -159,3 +159,7 @@ TODO: make notes on how to generate fonts for u8glib
     } while (u8g_NextPage(&u8g));
 
     HAL_Delay(2000);
+
+### Running
+
+![](pics/008-run.jpeg?raw=true)
