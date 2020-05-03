@@ -1,0 +1,76 @@
+<!DOCTYPE CrossStudio_Project_File>
+<solution Name="stm32f103c8" target="8" version="2">
+  <project Name="stm32f103c8">
+    <configuration
+      Name="Common"
+      arm_architecture="v7M"
+      arm_core_type="Cortex-M3"
+      arm_endian="Little"
+      arm_fpu_type=""
+      arm_linker_variant="SEGGER"
+      arm_simulator_memory_simulation_parameter="RX 08000000,00010000,FFFFFFFF;RWX 20000000,00005000,CDCDCDCD"
+      arm_target_device_name="STM32F103C8"
+      arm_target_interface_type="SWD"
+      debug_start_from_entry_point_symbol="No"
+      debug_target_connection="J-Link"
+      link_linker_script_file="$(StudioDir)/samples/SEGGER_Flash.icf"
+      linker_section_placements_segments="FLASH1 RX 0x08000000 0x00010000;RAM1 RWX 0x20000000 0x00005000"
+      project_directory=""
+      project_type="Executable" />
+    <folder Name="Internal Files">
+      <file file_name="$(StudioDir)/samples/Cortex_M_Startup.s" />
+      <file file_name="$(StudioDir)/samples/SEGGER_THUMB_Startup.s" />
+    </folder>
+    <configuration
+      CMSIS_CORE="Yes"
+      Name="stm32f103c8"
+      arm_architecture="v7M"
+      arm_core_type="Cortex-M3"
+      arm_endian="Little"
+      arm_fpu_type=""
+      arm_simulator_memory_simulation_parameter="RX 08000000,00010000,FFFFFFFF;RWX 20000000,00005000,CDCDCDCD"
+      arm_target_device_name="STM32F103C8"
+      c_preprocessor_definitions="USE_HAL_DRIVER;STM32F103xB"
+      c_user_include_directories="../Inc;../Drivers/STM32F1xx_HAL_Driver/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F1xx/Include;../Drivers/CMSIS/Include"
+      linker_section_placements_segments="FLASH1 RX 0x08000000 0x00010000;RAM1 RWX 0x20000000 0x00005000" />
+    <folder Name="Application/MDK-ARM">
+      <file file_name="startup_stm32f103xb.s">
+        <configuration Name="Internal" build_exclude_from_build="Yes" />
+      </file>
+    </folder>
+    <folder Name="::CMSIS" />
+    <folder Name="Application/User">
+      <file file_name="../Src/main.c" />
+      <file file_name="../Src/stm32f1xx_it.c" />
+      <file file_name="../Src/stm32f1xx_hal_msp.c" />
+    </folder>
+    <folder Name="Drivers/STM32F1xx_HAL_Driver">
+      <file file_name="../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c" />
+      <file file_name="../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c" />
+      <file file_name="../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c" />
+      <file file_name="../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c" />
+      <file file_name="../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c" />
+      <file file_name="../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c" />
+      <file file_name="../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c" />
+      <file file_name="../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c" />
+      <file file_name="../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c" />
+      <file file_name="../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c" />
+      <file file_name="../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c" />
+      <file file_name="../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c" />
+      <file file_name="../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c" />
+    </folder>
+    <folder Name="Drivers/CMSIS">
+      <file file_name="../Src/system_stm32f1xx.c" />
+    </folder>
+    <configuration
+      Name="External Keil ARMCC"
+      asm_additional_options="--cpu;Cortex-M3"
+      c_additional_options="--cpu;Cortex-M3;--C99;-O3;--split_sections;-g"
+      linker_additional_options="--cpu;Cortex-M3" />
+  </project>
+  <configuration Name="Internal" hidden="Yes" />
+  <configuration
+    Name="stm32f103c8 Internal"
+    inherited_configurations="Internal;stm32f103c8" />
+  <configuration Name="stm32f103c8" hidden="Yes" />
+</solution>
