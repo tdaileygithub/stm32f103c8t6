@@ -119,6 +119,10 @@
     <configuration
       Name="stm32f103c8 Internal"
       c_user_include_directories=".;/home/tim/Documents/github.com/stm32f103c8t6/stm32f103c8/Drivers/u8glib" />
+    <folder Name="fonts">
+      <file file_name="../fonts/u8g_font_courb10.c" />
+      <file file_name="../fonts/u8g_font_profont12.c" />
+    </folder>
   </project>
   <configuration Name="Internal" hidden="Yes" />
   <configuration
