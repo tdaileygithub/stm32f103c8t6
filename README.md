@@ -11,11 +11,20 @@
 
 ## stm32cube mx 
 
+![](pics/001-mcuselect.png?raw=true)
+
+![](pics/002-blinky.png?raw=true)
+
 - PC13 is the tamper light - set it to GPIO output
+- SYS -> Debug -> Serial Wire
+
+![](pics/006-swd.png?raw=true)
 
 ## Generate MDK-ARM Project
 
-Set Toolchain / IDE to MDK-ARM.  
+![](pics/003-mdk-arm-codegen.png?raw=true)
+
+- Set Toolchain / IDE to MDK-ARM.  
 
 Segger Embedded Studio can import these projects and this allows cube mx to generate the project and segger to compile and run. 
 
@@ -23,5 +32,21 @@ This is necessary because the knockoff blue-pills I received from china are NOT 
 
 ## Import MDK-ARM Project into Segger Embedded Studio
 
+![](pics/004-internal-toolchain.png?raw=true)
+
+![](pics/005-ide.png?raw=true)
+
 - File -> Import Kiel MDK Project ...
 - Select Internal Toolchain
+
+## Blinky Code - Main.c
+
+The following will blink the green light - PC13 on my board - every 500ms.  PC13 was setup as GPIO output in cube and the codegenerator handled all the init.
+
+    /* USER CODE BEGIN 3 */
+
+    HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
+    HAL_Delay(500);
+
+    HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
+    HAL_Delay(500);
