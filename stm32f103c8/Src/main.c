@@ -23,7 +23,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "u8g_com_arm_stm32.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -67,7 +67,7 @@ static void MX_I2C1_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+  u8g_t u8g;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -90,7 +90,7 @@ int main(void)
   MX_GPIO_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-
+  u8g_InitComFn(&u8g, &u8g_dev_ssd1306_128x32_i2c, u8g_com_arm_stm32_ssd_i2c_fn);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -106,6 +106,26 @@ int main(void)
 
     HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
     HAL_Delay(500);
+
+    //draw test
+    u8g_FirstPage(&u8g);
+    do {
+        u8g_SetFont(&u8g, u8g_font_profont12);
+        u8g_DrawStr(&u8g, 0, 12,  "  Hello :)");
+        u8g_DrawStr(&u8g, 0, 26,  "  STM32F103C8T6 FTW");
+    } while (u8g_NextPage(&u8g));
+
+    HAL_Delay(2000);
+
+    u8g_FirstPage(&u8g);
+    do {
+        u8g_SetFont(&u8g, u8g_font_profont12);
+        u8g_DrawStr(&u8g, 0, 15, "tdaileygithub");
+        u8g_DrawStr(&u8g, 0, 26, "      .github.io");
+    } while (u8g_NextPage(&u8g));
+
+    HAL_Delay(2000);
+
   }
   /* USER CODE END 3 */
 }
