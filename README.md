@@ -139,7 +139,13 @@ Using this excellent blog as reference
 - Create fonts directory
 - Copy from [https://github.com/wdomski/SSD1603-example/tree/master/fntsrc]()
 
-TODO: make notes on how to generate fonts for u8glib
+Get the fonts here:
+- [https://github.com/olikraus/u8glib/tree/master/fntsrc]()
+
+Font Converter Tool
+- [https://github.com/olikraus/u8glib/wiki/bdf2u8g]()
+
+    bdf2u8g.exe -b 32 -e 127 5x7.bdf font5x7 font5x7.c
 
 ### main loop - draw stuff
 
