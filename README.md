@@ -50,3 +50,24 @@ The following will blink the green light - PC13 on my board - every 500ms.  PC13
 
     HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
     HAL_Delay(500);
+
+### Blinky in Action
+
+Not very exciting - but at least the board works.
+
+# DSD TECH - SSD1603 based IIC OLED LCD Screen - 4$ oled
+
+[http://www.dsdtech-global.com/2018/05/iic-oled-lcd-u8glib.html]()
+
+## Screen Variants
+
+- 0.91 inch (128*32)
+- 0.96 inch (128*64)
+
+Libraries
+- [https://github.com/olikraus/u8g2/wiki/u8g2setupc#introduction]()
+- [https://blog.domski.pl/stm32-hal-driver-for-i2c-oled-display-with-u8glib/]()
+
+Deprecated Libraries
+- [https://github.com/olikraus/u8glib]()
+- [https://bintray.com/olikraus/u8glib/ARM]()

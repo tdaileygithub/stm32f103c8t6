@@ -1,5 +1,5 @@
-stm32f103c8/Output/
-stm32f103c8/MDK-ARM/Output/
+stm32f103c8/Output/*
+stm32f103c8/MDK-ARM/Output/**
 *.o
 *.map
 *.elf

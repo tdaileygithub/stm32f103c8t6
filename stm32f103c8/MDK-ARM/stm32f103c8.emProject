@@ -67,6 +67,10 @@
       asm_additional_options="--cpu;Cortex-M3"
       c_additional_options="--cpu;Cortex-M3;--C99;-O3;--split_sections;-g"
       linker_additional_options="--cpu;Cortex-M3" />
+    <folder Name="Drivers/u8glib" />
+    <configuration
+      Name="stm32f103c8 Internal"
+      c_user_include_directories=".;/home/tim/Documents/github.com/stm32f103c8t6/stm32f103c8/Drivers/u8glib" />
   </project>
   <configuration Name="Internal" hidden="Yes" />
   <configuration
