@@ -58,6 +58,7 @@
       <file file_name="../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c" />
       <file file_name="../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c" />
       <file file_name="../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c" />
+      <file file_name="../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c" />
     </folder>
     <folder Name="Drivers/CMSIS">
       <file file_name="../Src/system_stm32f1xx.c" />
@@ -109,7 +110,11 @@
       <file file_name="../Drivers/u8glib/u8g_u8toa.c" />
       <file file_name="../Drivers/u8glib/u8g_virtual_screen.c" />
       <file file_name="../Drivers/u8glib/u8g_dev_ssd1306_128x32.c" />
-      <file file_name="../Drivers/u8glib/u8g_com_arm_stm32.c" />
+      <file file_name="../Drivers/u8glib/u8g_com_arm_stm32.c">
+        <configuration
+          Name="stm32f103c8 Internal"
+          build_exclude_from_build="No" />
+      </file>
     </folder>
     <configuration
       Name="stm32f103c8 Internal"
