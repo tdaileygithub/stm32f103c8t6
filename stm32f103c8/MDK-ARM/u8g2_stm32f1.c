@@ -115,35 +115,35 @@ uint8_t u8x8_stm32_gpio_and_delay(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, vo
 
 uint8_t u8x8_byte_stm32_hw_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr)
 {
-	/* u8g2/u8x8 will never send more than 32 bytes between START_TRANSFER and END_TRANSFER */
-	static uint8_t buffer[32];
-	static uint8_t buf_idx;
-	uint8_t *data;
+      /* u8g2/u8x8 will never send more than 32 bytes between START_TRANSFER and END_TRANSFER */
+      static uint8_t buffer[32];
+      static uint8_t buf_idx;
+      uint8_t *data;
 
-	switch(msg)
-	{
-	case U8X8_MSG_BYTE_SEND:
-		data = (uint8_t *)arg_ptr;
-		while( arg_int > 0 )
-		{
-			buffer[buf_idx++] = *data;
-			data++;
-			arg_int--;
-		}
-		break;
-	case U8X8_MSG_BYTE_INIT:
-		/* add your custom code to init i2c subsystem */
-		break;
-	case U8X8_MSG_BYTE_SET_DC:
-		break;
-	case U8X8_MSG_BYTE_START_TRANSFER:
-		buf_idx = 0;
-		break;
-	case U8X8_MSG_BYTE_END_TRANSFER:
-		if(HAL_I2C_Master_Transmit(&hi2c1, (DEVICE_ADDRESS << 1), buffer, buf_idx, STM32_HAL_I2C_TIMEOUT) != HAL_OK) return 0;
-		break;
-	default:
-		return 0;
-	}
-	return 1;
+      switch(msg)
+      {
+      case U8X8_MSG_BYTE_SEND:
+              data = (uint8_t *)arg_ptr;
+              while( arg_int > 0 )
+              {
+                      buffer[buf_idx++] = *data;
+                      data++;
+                      arg_int--;
+              }
+              break;
+      case U8X8_MSG_BYTE_INIT:
+              /* add your custom code to init i2c subsystem */
+              break;
+      case U8X8_MSG_BYTE_SET_DC:
+              break;
+      case U8X8_MSG_BYTE_START_TRANSFER:
+              buf_idx = 0;
+              break;
+      case U8X8_MSG_BYTE_END_TRANSFER:
+              if(HAL_I2C_Master_Transmit(&hi2c1, (DEVICE_ADDRESS << 1), buffer, buf_idx, STM32_HAL_I2C_TIMEOUT) != HAL_OK) return 0;
+              break;
+      default:
+              return 0;
+      }
+      return 1;
 }

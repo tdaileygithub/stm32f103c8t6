@@ -108,11 +108,17 @@ int main(void)
 
 #ifdef USE_UG_LIB
   u8g_InitComFn(&u8g, &u8g_dev_ssd1306_128x32_i2c, u8g_com_arm_stm32_ssd_i2c_fn);
-#else
+#else  
+  u8g2_SetI2CAddress(&u8g2, SSD1306_I2C_ADDRESS);
+    
   u8g2_Setup_ssd1306_i2c_128x32_winstar_1(&u8g2, U8G2_R0, u8x8_byte_stm32_hw_i2c, u8x8_stm32_gpio_and_delay); 
+
    // transfer init sequence to the display
   u8g2_InitDisplay(&u8g2);
+  // turn off display
+  u8g2_SetPowerSave(&u8g2, 1);
   // turn on display
+  HAL_Delay(2000);
   u8g2_SetPowerSave(&u8g2, 0);
 #endif
 
@@ -126,6 +132,7 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
+    // BLINKY
     HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
     HAL_Delay(500);
 
@@ -154,26 +161,13 @@ int main(void)
     u8g2_FirstPage(&u8g2);
     do
     {
-        //u8g2_ClearBuffer(&u8g2);
-        //u8g2_SetDrawColor(&u8g2,1);
+        u8g2_ClearBuffer(&u8g2);
+        u8g2_SetDrawColor(&u8g2,1);
 
-        u8g2_SetFont(&u8g2, u8g_font_profont12);
-        u8g2_DrawStr(&u8g2, 0, 12,  "  Hello :)");
+        u8g2_SetFont(&u8g2, u8g2_font_profont12_tr);
+        u8g2_DrawStr(&u8g2, 0, 12,  "  UG82 :)");
         u8g2_DrawStr(&u8g2, 0, 26,  "  STM32F103C8T6 FTW");          
-    } while (u8g2_NextPage(&u8g2));
-
-    HAL_Delay(2000);
-
-    u8g2_FirstPage(&u8g2);
-    do
-    {
-        //u8g2_ClearBuffer(&u8g2);
-        //u8g2_SetDrawColor(&u8g2,1);
-
-        u8g2_SetFont(&u8g2, u8g_font_profont12);
-        u8g2_DrawStr(&u8g2, 0, 15, "tdaileygithub");
-        u8g2_DrawStr(&u8g2, 0, 26, "      .github.io");
-    } while (u8g2_NextPage(&u8g2));
+    } while (u8g2_NextPage(&u8g2));    
 #endif    
 
     HAL_Delay(2000);

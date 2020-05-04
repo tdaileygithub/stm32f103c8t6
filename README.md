@@ -171,6 +171,10 @@ Font Converter Tool
 ![](pics/008-run.jpeg?raw=true)
 
 
-# u8g2 
+# u8g2 - port
 
 [https://elastic-notes.blogspot.com/2018/10/u8g2-library-usage-with-stm32-mcu.html()
+
+All examples i found were for using 3 or 4 wire SPI.
+
+The cheap displays I have uses SPI and figuring out the sending issue would take more than 1 day effort. Punt
