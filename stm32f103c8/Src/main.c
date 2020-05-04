@@ -23,7 +23,16 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+
+// if USE_UG_LIB is defined -- use version ug8
+// else use ug82 -- which is not working
+#define USE_UG_LIB
+
+#ifdef USE_UG_LIB
 #include "u8g_com_arm_stm32.h"
+#else
+#include "u8g2_com_arm_stm32.h"
+#endif
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -67,7 +76,13 @@ static void MX_I2C1_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
+
+#ifdef USE_UG_LIB
   u8g_t u8g;
+#else
+  u8g2_t u8g2; 
+#endif
+
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -90,7 +105,17 @@ int main(void)
   MX_GPIO_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
+
+#ifdef USE_UG_LIB
   u8g_InitComFn(&u8g, &u8g_dev_ssd1306_128x32_i2c, u8g_com_arm_stm32_ssd_i2c_fn);
+#else
+  u8g2_Setup_ssd1306_i2c_128x32_winstar_1(&u8g2, U8G2_R0, u8x8_byte_stm32_hw_i2c, u8x8_stm32_gpio_and_delay); 
+   // transfer init sequence to the display
+  u8g2_InitDisplay(&u8g2);
+  // turn on display
+  u8g2_SetPowerSave(&u8g2, 0);
+#endif
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -107,6 +132,7 @@ int main(void)
     HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
     HAL_Delay(500);
 
+#ifdef USE_UG_LIB
     //draw test
     u8g_FirstPage(&u8g);
     do {
@@ -123,6 +149,32 @@ int main(void)
         u8g_DrawStr(&u8g, 0, 15, "tdaileygithub");
         u8g_DrawStr(&u8g, 0, 26, "      .github.io");
     } while (u8g_NextPage(&u8g));
+
+#else
+    u8g2_FirstPage(&u8g2);
+    do
+    {
+        //u8g2_ClearBuffer(&u8g2);
+        //u8g2_SetDrawColor(&u8g2,1);
+
+        u8g2_SetFont(&u8g2, u8g_font_profont12);
+        u8g2_DrawStr(&u8g2, 0, 12,  "  Hello :)");
+        u8g2_DrawStr(&u8g2, 0, 26,  "  STM32F103C8T6 FTW");          
+    } while (u8g2_NextPage(&u8g2));
+
+    HAL_Delay(2000);
+
+    u8g2_FirstPage(&u8g2);
+    do
+    {
+        //u8g2_ClearBuffer(&u8g2);
+        //u8g2_SetDrawColor(&u8g2,1);
+
+        u8g2_SetFont(&u8g2, u8g_font_profont12);
+        u8g2_DrawStr(&u8g2, 0, 15, "tdaileygithub");
+        u8g2_DrawStr(&u8g2, 0, 26, "      .github.io");
+    } while (u8g2_NextPage(&u8g2));
+#endif    
 
     HAL_Delay(2000);
 
