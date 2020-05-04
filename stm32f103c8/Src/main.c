@@ -111,7 +111,8 @@ int main(void)
 #else  
   u8g2_SetI2CAddress(&u8g2, SSD1306_I2C_ADDRESS);
     
-  u8g2_Setup_ssd1306_i2c_128x32_winstar_1(&u8g2, U8G2_R0, u8x8_byte_stm32_hw_i2c, u8x8_stm32_gpio_and_delay); 
+  //Full screen buffer mode
+  u8g2_Setup_ssd1306_i2c_128x32_winstar_f(&u8g2, U8G2_R0, u8x8_byte_stm32_hw_i2c, u8x8_stm32_gpio_and_delay); 
 
    // transfer init sequence to the display
   u8g2_InitDisplay(&u8g2);
@@ -157,17 +158,32 @@ int main(void)
         u8g_DrawStr(&u8g, 0, 26, "      .github.io");
     } while (u8g_NextPage(&u8g));
 
+    u8g_FirstPage(&u8g);
+    do
+    {
+      u8g_SetFont(&u8g, u8g_font_profont12);
+      u8g_DrawStr(&u8g, 0, 13,  "Hello World");
+      u8g_DrawFilledEllipse(&u8g, 105, 15, 8, 8, U8G_DRAW_ALL);
+    } while (u8g_NextPage(&u8g));
+
 #else
     u8g2_FirstPage(&u8g2);
     do
     {
-        u8g2_ClearBuffer(&u8g2);
-        u8g2_SetDrawColor(&u8g2,1);
+      u8g2_SetFont(&u8g2, u8g2_font_ncenB10_tr);
+      u8g2_DrawStr(&u8g2, 0, 13,  "Hello World");
+      u8g2_DrawFilledEllipse(&u8g2, 105, 15, 8, 8, U8G2_DRAW_ALL);
+    } while (u8g2_NextPage(&u8g2));
 
-        u8g2_SetFont(&u8g2, u8g2_font_profont12_tr);
-        u8g2_DrawStr(&u8g2, 0, 12,  "  UG82 :)");
-        u8g2_DrawStr(&u8g2, 0, 26,  "  STM32F103C8T6 FTW");          
-    } while (u8g2_NextPage(&u8g2));    
+
+    u8g2_FirstPage(&u8g2);
+    do
+    {
+      u8g2_SetFont(&u8g2, u8g2_font_ncenB10_tr);
+      u8g2_DrawStr(&u8g2, 0, 13,  "Cool");
+      u8g2_DrawDisc(&u8g2, 50, 15, 8, U8G2_DRAW_ALL);
+    } while (u8g2_NextPage(&u8g2));
+
 #endif    
 
     HAL_Delay(2000);

@@ -177,4 +177,7 @@ Font Converter Tool
 
 All examples i found were for using 3 or 4 wire SPI.
 
-The cheap displays I have uses SPI and figuring out the sending issue would take more than 1 day effort. Punt
+- Checked in code works but there are some strange artifacts at edges of screen.
+  - Not worth the effort to complete as u8g works great. 
+  - Maybe a memory clearing issue or fact that device is probably not a "winstar" specific?
+- Works but not bug free.

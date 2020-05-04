@@ -2,6 +2,16 @@
 <session>
  <Bookmarks/>
  <Breakpoints groups="Breakpoints" active_group="Breakpoints">
+  <BreakpointListItem trigger="" line="117" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" group="Breakpoints" type="Breakpoint" state="4" filename="../Src/main.c" useHWbreakpoint="false"/>
+  <BreakpointListItem trigger="" line="122" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" group="Breakpoints" type="Breakpoint" state="4" filename="../Src/main.c" useHWbreakpoint="false"/>
+  <BreakpointListItem trigger="" line="136" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" group="Breakpoints" type="Breakpoint" state="4" filename="u8g2_stm32f1.c" useHWbreakpoint="false"/>
+  <BreakpointListItem trigger="" line="138" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" group="Breakpoints" type="Breakpoint" state="4" filename="u8g2_stm32f1.c" useHWbreakpoint="false"/>
+  <BreakpointListItem trigger="" line="60" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" group="Breakpoints" type="Breakpoint" state="4" filename="u8g2_stm32f1.c" useHWbreakpoint="false"/>
+  <BreakpointListItem trigger="" line="64" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" group="Breakpoints" type="Breakpoint" state="4" filename="u8g2_stm32f1.c" useHWbreakpoint="false"/>
+  <BreakpointListItem trigger="" line="68" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" group="Breakpoints" type="Breakpoint" state="4" filename="u8g2_stm32f1.c" useHWbreakpoint="false"/>
+  <BreakpointListItem trigger="" line="73" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" group="Breakpoints" type="Breakpoint" state="4" filename="u8g2_stm32f1.c" useHWbreakpoint="false"/>
+  <BreakpointListItem trigger="" line="78" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" group="Breakpoints" type="Breakpoint" state="4" filename="u8g2_stm32f1.c" useHWbreakpoint="false"/>
+  <BreakpointListItem trigger="" line="107" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" group="Breakpoints" type="Breakpoint" state="4" filename="../Drivers/u8g2/u8x8_d_ssd1306_128x32.c" useHWbreakpoint="false"/>
   <Exceptions set="MemManage;UsageFault_Coprocessor;UsageFault_CheckingError;UsageFault_StateError;BusFault;ExceptionEntryReturnFault;HardFault"/>
  </Breakpoints>
  <ExecutionProfileWindow/>
@@ -24,9 +34,6 @@
   <ProjectSessionItem path="stm32f103c8"/>
   <ProjectSessionItem path="stm32f103c8;stm32f103c8"/>
   <ProjectSessionItem path="stm32f103c8;stm32f103c8;Application/User"/>
-  <ProjectSessionItem path="stm32f103c8;stm32f103c8;Drivers/CMSIS"/>
-  <ProjectSessionItem path="stm32f103c8;stm32f103c8;Drivers/STM32F1xx_HAL_Driver"/>
-  <ProjectSessionItem path="stm32f103c8;stm32f103c8;Drivers/u8glib"/>
  </Project>
  <Register1>
   <RegisterWindow visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/sp(r13);CPU/lr(r14);CPU/pc(r15);CPU/xpsr;CPU/msp;CPU/psp;CPU/cfbp;CPU/internal" binaryNodes="" asciiNodes="" openNodes="CPU - Current Context" name="stm32f103c8" decimalNodes="" octalNodes="" unsignedNodes=""/>
@@ -59,8 +66,13 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="21" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../Src/main.c" selected="0" top="15" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" openedFrom="/home/tim/Documents/github.com/stm32f103c8t6/stm32f103c8/Src/main.c" useBinaryEdit="0" left="0" path="../Inc/main.h" selected="1" top="36" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="30" y="7" useTextEdit="1" openedFrom="/home/tim/Documents/github.com/stm32f103c8t6/stm32f103c8/Src/main.c" useBinaryEdit="0" left="0" path="../Inc/u8g2_com_arm_stm32.h" selected="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="4" y="74" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../Src/main.c" selected="1" top="55" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="142" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="u8g2_stm32f1.c" selected="0" top="107" codecName=""/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="104" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../Drivers/u8g2/u8x8_display.c" selected="0" top="82" codecName=""/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="500" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../Drivers/u8g2/u8x8_cad.c" selected="0" top="476" codecName=""/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="515" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../Drivers/u8g2/u8x8_byte.c" selected="0" top="481" codecName=""/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="68" useTextEdit="1" openedFrom="/home/tim/Documents/github.com/stm32f103c8t6/stm32f103c8/MDK-ARM/u8g2_stm32f1.c" useBinaryEdit="0" left="0" path="../Drivers/u8g2/u8x8.h" selected="0" top="41" codecName="Default"/>
  </Files>
- <ARMCrossStudioWindow activeProject="stm32f103c8" fileDialogDefaultFilter="*.c" autoConnectTarget="J-Link" buildConfiguration="stm32f103c8 Internal" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="/home/tim/Documents/github.com/stm32f103c8t6/stm32f103c8/Drivers/u8glib" debugSearchPath="" autoConnectCapabilities="3199"/>
+ <ARMCrossStudioWindow activeProject="stm32f103c8" fileDialogDefaultFilter="*.c" autoConnectTarget="J-Link" buildConfiguration="stm32f103c8 Internal" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="/home/tim/Documents/github.com/stm32f103c8t6/stm32f103c8/Drivers/u8g2" debugSearchPath="" autoConnectCapabilities="3711"/>
 </session>

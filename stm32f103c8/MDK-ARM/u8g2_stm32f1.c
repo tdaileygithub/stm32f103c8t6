@@ -18,8 +18,8 @@
 //#define OLED_RST_Pin GPIO_PIN_11
 //#define OLED_RST_GPIO_Port GPIOD
 
-#define DEVICE_ADDRESS          0x78
-//#define DEVICE_ADDRESS 	0x3C
+//#define DEVICE_ADDRESS          0x78
+#define DEVICE_ADDRESS            0x3C
 #define STM32_HAL_I2C_TIMEOUT		2000
 
 //extern SPI_HandleTypeDef hspi2;
@@ -57,7 +57,7 @@ uint8_t u8x8_stm32_gpio_and_delay(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, vo
 	{
 	case U8X8_MSG_GPIO_AND_DELAY_INIT:
 		/* Insert codes for initialization */
-                u8g2_Delay(STM32_HAL_I2C_TIMEOUT);
+                u8g2_Delay(100);
 		break;
 	case U8X8_MSG_DELAY_MILLI:
 		/* ms Delay */
@@ -132,16 +132,19 @@ uint8_t u8x8_byte_stm32_hw_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void 
               }
               break;
       case U8X8_MSG_BYTE_INIT:
-              /* add your custom code to init i2c subsystem */
-              break;
+            /* add your custom code to init i2c subsystem */
+            break;
       case U8X8_MSG_BYTE_SET_DC:
               break;
       case U8X8_MSG_BYTE_START_TRANSFER:
-              buf_idx = 0;
-              break;
+            buf_idx = 0;
+            break;
       case U8X8_MSG_BYTE_END_TRANSFER:
-              if(HAL_I2C_Master_Transmit(&hi2c1, (DEVICE_ADDRESS << 1), buffer, buf_idx, STM32_HAL_I2C_TIMEOUT) != HAL_OK) return 0;
-              break;
+           if (HAL_I2C_Master_Transmit(&hi2c1, (DEVICE_ADDRESS << 1), buffer, buf_idx, STM32_HAL_I2C_TIMEOUT) != HAL_OK)
+           {
+              return 0;
+           }
+           break;
       default:
               return 0;
       }
